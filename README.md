@@ -4,18 +4,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Juventus Pizzeria Angered – Pizza, Oxfilé &amp; Kebab i Angered Centrum</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Pacifico&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#1B1411;
-    --tomato:#C1272D;
-    --tomato-dark:#8f1c20;
-    --cream:#F2E6D0;
-    --cream-soft:#FBF6EC;
-    --saffron:#E8A33D;
-    --olive:#4A5A3A;
-    --line: rgba(27,20,17,0.14);
+    --ink:#0D0D0D;
+    --tomato:#C8102E;
+    --tomato-dark:#8c0c20;
+    --cream:#F4F2EE;
+    --cream-soft:#FBFAF8;
+    --saffron:#D4AF37;
+    --olive:#1E7A45;
+    --line: rgba(13,13,13,0.14);
     --display: 'Anton', sans-serif;
+    --script: 'Pacifico', cursive;
     --body: 'Inter', sans-serif;
     --mono: 'Space Mono', monospace;
   }
@@ -70,19 +71,30 @@
     display:flex; align-items:center; justify-content:space-between;
     padding-top:14px; padding-bottom:14px;
   }
+  .stripes{
+    background-image: repeating-linear-gradient(90deg, var(--ink) 0 14px, #fff 14px 28px);
+  }
   .brand{
     display:flex; align-items:center; gap:10px;
-    font-family:var(--display);
-    font-size:22px;
-    letter-spacing:.01em;
     text-decoration:none;
   }
   .brand .badge-mini{
-    width:34px;height:34px;border-radius:50%;
-    background:var(--tomato); color:var(--cream);
+    width:36px;height:36px;border-radius:50%;
+    background-image: repeating-linear-gradient(90deg, var(--ink) 0 5px, #fff 5px 10px);
+    border:2px solid var(--ink);
     display:flex;align-items:center;justify-content:center;
-    font-family:var(--display); font-size:14px;
+    color:var(--tomato); font-family:var(--display); font-size:14px;
+    flex:none;
   }
+  .brand-word{
+    font-family:var(--script);
+    font-size:26px;
+    line-height:1;
+    color:var(--ink);
+  }
+  .pizz{color:var(--olive); font-family:var(--display); font-size:14px; letter-spacing:.03em;}
+  .ria{color:var(--tomato);}
+  .brand-sub{display:flex; align-items:baseline; gap:2px;}
   .navlinks{display:flex; gap:28px; font-size:14.5px; font-weight:600;}
   .navlinks a{text-decoration:none; opacity:.8;}
   .navlinks a:hover{opacity:1; color:var(--tomato);}
@@ -103,16 +115,19 @@
   .hero{
     position:relative;
     background:var(--ink);
-    color:var(--cream);
+    color:#fff;
     overflow:hidden;
     isolation:isolate;
+    border-top:6px solid;
+    border-image: repeating-linear-gradient(90deg, var(--ink) 0 14px, #fff 14px 28px) 1;
   }
   .hero::before{
     content:"";
     position:absolute; inset:0;
     background-image:
-      radial-gradient(circle at 18% 20%, rgba(193,39,45,0.35), transparent 45%),
-      radial-gradient(circle at 85% 75%, rgba(232,163,61,0.25), transparent 50%);
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0 18px, transparent 18px 36px),
+      radial-gradient(circle at 18% 20%, rgba(200,16,46,0.30), transparent 45%),
+      radial-gradient(circle at 85% 75%, rgba(30,122,69,0.22), transparent 50%);
     z-index:0;
   }
   .hero-grid{
@@ -351,7 +366,13 @@
 <header>
   <nav class="wrap">
     <a href="#top" class="brand">
-      <span class="badge-mini">J</span> JUVENTUS PIZZERIA
+      <span class="badge-mini">J</span>
+      <span class="brand-sub">
+        <span class="brand-word">Juventus</span>
+      </span>
+      <span style="display:flex; flex-direction:column; line-height:1;">
+        <span class="pizz">PIZZE<span class="ria">RIA</span></span>
+      </span>
     </a>
     <div class="navlinks">
       <a href="#meny">Meny</a>
@@ -376,8 +397,8 @@
       </div>
       <div class="hero-stats">
         <div class="hstat"><b>4.0★</b><span>245 GOOGLE-OMDÖMEN</span></div>
-        <div class="hstat"><b>50</b><span>RÄTTER PÅ MENYN</span></div>
-        <div class="hstat"><b>10–20</b><span>MIN TILL DÖRREN</span></div>
+        <div class="hstat"><b>110:-</b><span>DAGENS LUNCH, VARDAGAR 11–14</span></div>
+        <div class="hstat"><b>35:-</b><span>HEMKÖRNING, ALLA DAGAR 12–21.30</span></div>
       </div>
     </div>
     <div class="hero-photo">
@@ -391,10 +412,11 @@
 
 <div class="trust">
   <div class="wrap">
-    <div class="trust-item"><span class="stars">★★★★☆</span><b>4.0 av 5</b> · 245 recensioner på Google</div>
-    <div class="trust-item">🧀 Äkta gorgonzola &amp; mozzarella</div>
-    <div class="trust-item">🔥 Vedugnsbakad botten</div>
-    <div class="trust-item">🥙 Kött som vänds på spett</div>
+    <div class="trust-item"><span class="stars">★★★★☆</span><b>4.0 av 5</b> · 245 recensioner</div>
+    <div class="trust-item">☪️ Halal</div>
+    <div class="trust-item">🍽️ Dagens lunch vardagar 11–14 · <b>110:-</b></div>
+    <div class="trust-item">🛵 Hemkörning alla dagar 12.00–21.30 · <b>35:-</b></div>
+    <div class="trust-item">📱 Swish <b>123 504 72 12</b></div>
   </div>
 </div>
 
@@ -564,7 +586,7 @@
         <div class="order-opt">
           <div class="order-opt-label">
             <div class="opt-icon">🛵</div>
-            <div><div class="opt-name">Hemleverans</div><div class="opt-sub">via Foodora · ca 20–35 min</div></div>
+            <div><div class="opt-name">Hemleverans</div><div class="opt-sub">35:- · alla dagar 12.00–21.30</div></div>
           </div>
           <a class="pill-btn" href="https://www.foodora.se/restaurant/v6gr/angered-juventus-pizzeria-angered" target="_blank" rel="noopener">Beställ</a>
         </div>
@@ -651,7 +673,8 @@
         </div>
         <div class="foot-col">
           <h4>Öppettider</h4>
-          <div>Mån–Sön: 11:00–22:00</div>
+          <div>Vardagar: 11:00–22:00</div>
+          <div>Helger: 12:00–22:00</div>
         </div>
       </div>
     </div>
