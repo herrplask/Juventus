@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juventus Pizzeria Angered – Pizza, Oxfilé &amp; Kebab i Angered Centrum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Pacifico&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0D0D0D;
+    --tomato:#C8102E;
+    --tomato-dark:#8c0c20;
+    --cream:#F4F2EE;
+    --cream-soft:#FBFAF8;
+    --saffron:#D4AF37;
+    --olive:#1E7A45;
+    --line: rgba(13,13,13,0.14);
+    --display: 'Anton', sans-serif;
+    --script: 'Pacifico', cursive;
+    --body: 'Inter', sans-serif;
+    --mono: 'Space Mono', monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream-soft);
+    color:var(--ink);
+    font-family:var(--body);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px;}
+
+  /* ---------- focus ---------- */
+  a:focus-visible, button:focus-visible{
+    outline:3px solid var(--saffron);
+    outline-offset:2px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    background:var(--ink);
+    color:var(--cream);
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:.02em;
+  }
+  .topbar .wrap{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:9px 24px; gap:16px; flex-wrap:wrap;
+  }
+  .topbar a{text-decoration:none;}
+  .topbar .phone{color:var(--saffron); font-weight:700;}
+  .topbar .status{display:flex;align-items:center;gap:6px;}
+  .dot{width:7px;height:7px;border-radius:50%;background:#7CC576;display:inline-block;flex:none;}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--cream-soft);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:14px; padding-bottom:14px;
+  }
+  .stripes{
+    background-image: repeating-linear-gradient(90deg, var(--ink) 0 14px, #fff 14px 28px);
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    text-decoration:none;
+  }
+  .brand .badge-mini{
+    width:36px;height:36px;border-radius:50%;
+    background-image: repeating-linear-gradient(90deg, var(--ink) 0 5px, #fff 5px 10px);
+    border:2px solid var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--tomato); font-family:var(--display); font-size:14px;
+    flex:none;
+  }
+  .brand-word{
+    font-family:var(--script);
+    font-size:26px;
+    line-height:1;
+    color:var(--ink);
+  }
+  .pizz{color:var(--olive); font-family:var(--display); font-size:14px; letter-spacing:.03em;}
+  .ria{color:var(--tomato);}
+  .brand-sub{display:flex; align-items:baseline; gap:2px;}
+  .navlinks{display:flex; gap:28px; font-size:14.5px; font-weight:600;}
+  .navlinks a{text-decoration:none; opacity:.8;}
+  .navlinks a:hover{opacity:1; color:var(--tomato);}
+  .cta-btn{
+    background:var(--tomato); color:#fff; border:none;
+    font-family:var(--body); font-weight:700; font-size:14.5px;
+    padding:11px 20px; border-radius:6px; text-decoration:none;
+    display:inline-flex; align-items:center; gap:8px;
+    box-shadow:0 4px 0 var(--tomato-dark);
+    transition:transform .12s ease, box-shadow .12s ease;
+    white-space:nowrap;
+  }
+  .cta-btn:hover{transform:translateY(-2px); box-shadow:0 6px 0 var(--tomato-dark);}
+  .cta-btn:active{transform:translateY(2px); box-shadow:0 2px 0 var(--tomato-dark);}
+  @media (max-width:760px){ .navlinks{display:none;} }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    background:var(--ink);
+    color:#fff;
+    overflow:hidden;
+    isolation:isolate;
+    border-top:6px solid;
+    border-image: repeating-linear-gradient(90deg, var(--ink) 0 14px, #fff 14px 28px) 1;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0 18px, transparent 18px 36px),
+      radial-gradient(circle at 18% 20%, rgba(200,16,46,0.30), transparent 45%),
+      radial-gradient(circle at 85% 75%, rgba(30,122,69,0.22), transparent 50%);
+    z-index:0;
+  }
+  .hero-grid{
+    position:relative; z-index:1;
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px;
+    align-items:center;
+    padding:64px 24px 56px;
+  }
+  @media (max-width:880px){
+    .hero-grid{grid-template-columns:1fr; padding-top:40px;}
+  }
+  .eyebrow{
+    font-family:var(--mono); font-size:13px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--saffron); display:flex; align-items:center; gap:10px; margin-bottom:18px;
+  }
+  .eyebrow::before{content:"";width:24px;height:1px;background:var(--saffron);}
+  h1.hero-title{
+    font-family:var(--display);
+    font-size:clamp(44px, 7vw, 84px);
+    line-height:0.95;
+    margin:0 0 18px;
+    text-transform:uppercase;
+  }
+  h1.hero-title span{color:var(--tomato);}
+  .hero-sub{
+    font-size:18px; max-width:480px; color:rgba(242,230,208,0.85);
+    margin-bottom:30px;
+  }
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:34px;}
+  .ghost-btn{
+    border:1.5px solid rgba(242,230,208,0.4); color:var(--cream);
+    padding:11px 20px; border-radius:6px; font-weight:700; font-size:14.5px;
+    text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+    transition:border-color .15s, background .15s;
+  }
+  .ghost-btn:hover{border-color:var(--cream); background:rgba(255,255,255,0.06);}
+  .hero-stats{display:flex; gap:32px; flex-wrap:wrap;}
+  .hstat b{display:block; font-family:var(--display); font-size:30px; color:var(--cream);}
+  .hstat span{font-size:12.5px; color:rgba(242,230,208,0.65); font-family:var(--mono); letter-spacing:.03em;}
+
+  .hero-photo{
+    position:relative; z-index:1;
+  }
+  .ticket{
+    position:relative;
+    background:var(--cream-soft);
+    color:var(--ink);
+    border-radius:10px;
+    padding:18px 18px 22px;
+    transform:rotate(2.5deg);
+    box-shadow:0 24px 50px rgba(0,0,0,0.4);
+  }
+  .ticket img{border-radius:6px; aspect-ratio:1/1; object-fit:cover;}
+  .ticket .tcap{
+    font-family:var(--mono); font-size:12px; margin-top:12px;
+    display:flex; justify-content:space-between; color:var(--ink);
+    border-top:1px dashed var(--line); padding-top:10px;
+  }
+  .ticket .tcap b{color:var(--tomato);}
+
+  /* ---------- trust strip ---------- */
+  .trust{
+    background:var(--cream); border-bottom:1px solid var(--line);
+  }
+  .trust .wrap{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:18px 24px; flex-wrap:wrap; gap:18px;
+    font-family:var(--mono); font-size:13px;
+  }
+  .trust-item{display:flex; align-items:center; gap:10px;}
+  .stars{color:var(--saffron); letter-spacing:1px; font-size:15px;}
+  .trust-item b{font-family:var(--body); font-weight:800; color:var(--ink); font-size:14px;}
+
+  /* ---------- section heading ---------- */
+  .section{padding:84px 24px;}
+  .section.alt{background:var(--cream);}
+  .sec-head{max-width:640px; margin-bottom:48px;}
+  .sec-eyebrow{
+    font-family:var(--mono); font-size:13px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--tomato); margin-bottom:12px; display:block;
+  }
+  h2.sec-title{
+    font-family:var(--display); font-size:clamp(32px,4vw,46px);
+    text-transform:uppercase; margin:0 0 14px; line-height:1.02;
+  }
+  .sec-desc{font-size:16.5px; color:rgba(27,20,17,0.7); max-width:540px;}
+
+  /* ---------- menu ---------- */
+  .menu-tabs{
+    display:flex; gap:10px; flex-wrap:wrap; margin-bottom:36px;
+  }
+  .menu-tab{
+    font-family:var(--mono); font-size:12.5px; letter-spacing:.02em;
+    background:transparent; border:1.5px solid var(--line); border-radius:999px;
+    padding:8px 16px; cursor:pointer; color:var(--ink); font-weight:700;
+    transition:all .15s;
+  }
+  .menu-tab.active, .menu-tab:hover{
+    background:var(--ink); color:var(--cream); border-color:var(--ink);
+  }
+  .menu-cats{display:grid; gap:48px;}
+  .menu-cat{display:none;}
+  .menu-cat.show{display:block;}
+  .menu-cat h3{
+    font-family:var(--display); font-size:22px; text-transform:uppercase;
+    color:var(--tomato); margin:0 0 18px; letter-spacing:.02em;
+  }
+  .menu-list{display:grid; grid-template-columns:repeat(2,1fr); gap:14px;}
+  @media (max-width:700px){ .menu-list{grid-template-columns:1fr;} }
+  .item{
+    display:flex; gap:14px; align-items:flex-start;
+    padding:14px 14px 14px 0;
+    border-bottom:1px dashed var(--line);
+  }
+  .ticket-num{
+    flex:none; width:38px; height:48px;
+    background:var(--ink); color:var(--cream);
+    font-family:var(--mono); font-weight:700; font-size:14px;
+    display:flex; align-items:center; justify-content:center;
+    border-radius:3px;
+    position:relative;
+  }
+  .ticket-num::before, .ticket-num::after{
+    content:""; position:absolute; width:8px; height:8px; border-radius:50%;
+    background:var(--cream-soft); left:50%; transform:translateX(-50%);
+  }
+  .ticket-num::before{top:-4px;}
+  .ticket-num::after{bottom:-4px;}
+  .item-body{flex:1;}
+  .item-top{display:flex; justify-content:space-between; gap:10px; align-items:baseline;}
+  .item-name{font-weight:800; font-size:15px; text-transform:uppercase; letter-spacing:.01em;}
+  .item-price{font-family:var(--mono); font-weight:700; color:var(--tomato); white-space:nowrap; font-size:14.5px;}
+  .item-desc{font-size:13.5px; color:rgba(27,20,17,0.62); margin-top:3px;}
+
+  .addons{margin-top:8px;}
+  .addons-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:6px 24px;}
+  @media (max-width:600px){ .addons-grid{grid-template-columns:1fr;} }
+  .addon-row{display:flex; justify-content:space-between; font-size:14px; padding:6px 0; border-bottom:1px dotted var(--line);}
+  .addon-row span:last-child{font-family:var(--mono); color:var(--tomato); font-weight:700;}
+
+  /* ---------- order section ---------- */
+  .order-section{
+    background:var(--ink); color:var(--cream); position:relative; overflow:hidden;
+  }
+  .order-section::before{
+    content:""; position:absolute; inset:0;
+    background:radial-gradient(circle at 80% 20%, rgba(232,163,61,0.18), transparent 55%);
+  }
+  .order-grid{
+    position:relative; z-index:1;
+    display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;
+  }
+  @media (max-width:880px){ .order-grid{grid-template-columns:1fr;} }
+  .order-card{
+    background:var(--cream-soft); color:var(--ink); border-radius:14px;
+    padding:36px; box-shadow:0 30px 60px rgba(0,0,0,0.35);
+  }
+  .order-opt{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0; border-bottom:1px solid var(--line);
+  }
+  .order-opt:last-child{border-bottom:none;}
+  .order-opt-label{display:flex; gap:14px; align-items:center;}
+  .opt-icon{
+    width:42px;height:42px;border-radius:10px;background:var(--cream);
+    display:flex;align-items:center;justify-content:center;font-size:19px;
+    border:1px solid var(--line);
+  }
+  .opt-name{font-weight:800; font-size:15.5px;}
+  .opt-sub{font-size:12.5px; color:rgba(27,20,17,0.55); font-family:var(--mono);}
+  .pill-btn{
+    background:var(--tomato); color:#fff; font-weight:700; font-size:13.5px;
+    padding:9px 16px; border-radius:999px; text-decoration:none; white-space:nowrap;
+  }
+  .pill-btn.alt{background:var(--ink);}
+  .pill-btn.outline{background:transparent; color:var(--ink); border:1.5px solid var(--ink);}
+
+  /* ---------- map ---------- */
+  .map-embed{
+    border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,0.12);
+    aspect-ratio:4/3; background:#3a3530;
+  }
+  .map-embed iframe{width:100%; height:100%; border:0;}
+
+  /* ---------- reviews ---------- */
+  .reviews-rail{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:20px;
+  }
+  @media (max-width:900px){ .reviews-rail{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:620px){ .reviews-rail{grid-template-columns:1fr;} }
+  .review-card{
+    background:var(--cream-soft); border:1px solid var(--line); border-radius:12px;
+    padding:22px; display:flex; flex-direction:column; gap:12px;
+  }
+  .review-stars{color:var(--saffron); font-size:14px; letter-spacing:1px;}
+  .review-text{font-size:14.5px; color:rgba(27,20,17,0.82); flex:1;}
+  .review-name{display:flex; justify-content:space-between; align-items:baseline; font-size:12.5px; font-family:var(--mono); color:rgba(27,20,17,0.55);}
+  .review-name b{color:var(--ink); font-family:var(--body); font-weight:700; font-size:13.5px;}
+
+  /* ---------- footer ---------- */
+  footer{
+    background:var(--ink); color:rgba(242,230,208,0.65);
+    padding:48px 24px 28px; font-size:13.5px;
+  }
+  .foot-grid{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px;
+    padding-bottom:28px; border-bottom:1px solid rgba(242,230,208,0.12);
+    margin-bottom:20px;
+  }
+  .foot-brand{font-family:var(--display); font-size:22px; color:var(--cream); text-transform:uppercase;}
+  .foot-cols{display:flex; gap:48px; flex-wrap:wrap;}
+  .foot-col h4{font-family:var(--mono); font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--saffron); margin:0 0 10px;}
+  .foot-col div{margin-bottom:6px;}
+  .foot-bottom{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-family:var(--mono); font-size:11.5px;}
+
+  /* sticky mobile order bar */
+  .sticky-order{
+    position:fixed; bottom:0; left:0; right:0; z-index:60;
+    background:var(--ink); padding:12px 16px; display:none;
+    justify-content:space-between; align-items:center; gap:10px;
+    box-shadow:0 -8px 24px rgba(0,0,0,0.25);
+  }
+  @media (max-width:760px){ .sticky-order{display:flex;} body{padding-bottom:0;} }
+  .sticky-order .cta-btn{flex:1; justify-content:center;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="status"><span class="dot"></span> Öppet nu · Stänger 22:00</div>
+    <div>Angereds Torg 8, 424 65 Angered &nbsp;·&nbsp; <a class="phone" href="tel:0313304043">031-330 40 43</a></div>
+  </div>
+</div>
+
+<header>
+  <nav class="wrap">
+    <a href="#top" class="brand">
+      <span class="badge-mini">J</span>
+      <span class="brand-sub">
+        <span class="brand-word">Juventus</span>
+      </span>
+      <span style="display:flex; flex-direction:column; line-height:1;">
+        <span class="pizz">PIZZE<span class="ria">RIA</span></span>
+      </span>
+    </a>
+    <div class="navlinks">
+      <a href="#meny">Meny</a>
+      <a href="#omdomen">Omdömen</a>
+      <a href="#hitta">Hitta hit</a>
+    </div>
+    <a class="cta-btn" href="https://www.foodora.se/restaurant/v6gr/angered-juventus-pizzeria-angered" target="_blank" rel="noopener">
+      Beställ på Foodora →
+    </a>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Angered Centrum · Sedan flera generationer</div>
+      <h1 class="hero-title">Vedugn möter <span>kebabspettet.</span></h1>
+      <p class="hero-sub">50 pizzor, riktig oxfilé och kebab som vänds på spett – inte fryst skivat kött. Beställ hem på minuten eller käka på plats mitt i Angered Centrum.</p>
+      <div class="hero-ctas">
+        <a class="cta-btn" href="https://www.foodora.se/restaurant/v6gr/angered-juventus-pizzeria-angered" target="_blank" rel="noopener">🛵 Beställ leverans</a>
+        <a class="ghost-btn" href="tel:0313304043">📞 Ring &amp; hämta</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><b>4.0★</b><span>245 GOOGLE-OMDÖMEN</span></div>
+        <div class="hstat"><b>110:-</b><span>DAGENS LUNCH, VARDAGAR 11–14</span></div>
+        <div class="hstat"><b>35:-</b><span>HEMKÖRNING, ALLA DAGAR 12–21.30</span></div>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="ticket">
+        <img src="hero-pizza.png" alt="Kebabpizza med kycklingfilé, vit sås och curry">
+        <div class="tcap"><span>NR. 45 — FAVORITEN</span><b>125:-</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap">
+    <div class="trust-item"><span class="stars">★★★★☆</span><b>4.0 av 5</b> · 245 recensioner</div>
+    <div class="trust-item">☪️ Halal</div>
+    <div class="trust-item">🍽️ Dagens lunch vardagar 11–14 · <b>110:-</b></div>
+    <div class="trust-item">🛵 Hemkörning alla dagar 12.00–21.30 · <b>35:-</b></div>
+    <div class="trust-item">📱 Swish <b>123 504 72 12</b></div>
+  </div>
+</div>
+
+<section class="section" id="meny">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-eyebrow">Menyn</span>
+      <h2 class="sec-title">Beställ med numret — precis som i kassan</h2>
+      <p class="sec-desc">Samma siffror som på skylten i Angered Centrum. Säg numret i telefon eller klicka på rätten i appen — funkar likadant.</p>
+    </div>
+
+    <div class="menu-tabs" role="tablist" aria-label="Menykategorier">
+      <button class="menu-tab active" data-cat="ordinarie">Ordinarie</button>
+      <button class="menu-tab" data-cat="skaldjur">Skaldjur</button>
+      <button class="menu-tab" data-cat="veg">Vegetariska</button>
+      <button class="menu-tab" data-cat="nott">Nötfärs</button>
+      <button class="menu-tab" data-cat="salami">Salami</button>
+      <button class="menu-tab" data-cat="kyckling">Kyckling</button>
+      <button class="menu-tab" data-cat="kebab">Kebab</button>
+      <button class="menu-tab" data-cat="inbakad">Inbakade</button>
+      <button class="menu-tab" data-cat="oxfile">Oxfilé</button>
+      <button class="menu-tab" data-cat="amerikan">Amerikanska</button>
+    </div>
+
+    <div class="menu-cats">
+
+      <div class="menu-cat show" data-cat="ordinarie">
+        <h3>Ordinarie pizzor</h3>
+        <div class="menu-list">
+          <div class="item"><div class="ticket-num">01</div><div class="item-body"><div class="item-top"><span class="item-name">Margherita</span><span class="item-price">80:-</span></div><div class="item-desc">Tomat, ost</div></div></div>
+          <div class="item"><div class="ticket-num">02</div><div class="item-body"><div class="item-top"><span class="item-name">Margherita Special</span><span class="item-price">100:-</span></div><div class="item-desc">Ost, vitlök, mozzarella, gorgonzola</div></div></div>
+          <div class="item"><div class="ticket-num">03</div><div class="item-body"><div class="item-top"><span class="item-name">Funghi</span><span class="item-price">85:-</span></div><div class="item-desc">Champinjoner</div></div></div>
+          <div class="item"><div class="ticket-num">04</div><div class="item-body"><div class="item-top"><span class="item-name">Vesuvio</span><span class="item-price">95:-</span></div><div class="item-desc">Skinka</div></div></div>
+          <div class="item"><div class="ticket-num">05</div><div class="item-body"><div class="item-top"><span class="item-name">Hawaii</span><span class="item-price">100:-</span></div><div class="item-desc">Skinka, ananas</div></div></div>
+          <div class="item"><div class="ticket-num">06</div><div class="item-body"><div class="item-top"><span class="item-name">Capricciosa</span><span class="item-price">100:-</span></div><div class="item-desc">Skinka, champinjoner</div></div></div>
+          <div class="item"><div class="ticket-num">07</div><div class="item-body"><div class="item-top"><span class="item-name">John Blund</span><span class="item-price">115:-</span></div><div class="item-desc">Skinka, bacon, champinjoner, ägg, lök</div></div></div>
+        </div>
+      </div>
+
+      <div class="menu-cat" data-cat="skaldjur">
+        <h3>Skaldjurspizzor</h3>
+        <div class="menu-list">
+          <div class="item"><div class="ticket-num">08</div><div class="item-body"><div class="item-top"><span class="item-name">Venezia</span><span class="item-price">105:-</span></div><div class="item-desc">Skinka, tonfisk</div></div></div>
+          <div class="item"><div class="ticket-num">09</div><div class="item-body"><div class="item-top"><span class="item-name">Frutti di Mare</span><span class="item-price">110:-</span></div><div class="item-desc">Tonfisk, räkor, musslor</div></div></div>
+          <div class="item"><div class="ticket-num">10</div><div class="item-body"><div class="item-top"><span class="item-name">Marinara</span><span class="item-price">105:-</span></div><div class="item-desc">Räkor, musslor</div></div></div>
+          <div class="item"><div class="ticket-num">11</div><div class="item-body"><div class="item-top"><span class="item-name">Quattro Stagioni</span><span class="item-price">110:-</span></div><div class="item-desc">Skinka, räkor, musslor, champinjoner</div></div></div>
+        </div>
+      </div>
+
+      <div class="menu-cat" data-cat="veg">
+        <h3>Vegetariska pizzor</h3>
+        <div class="menu-list">
+          <div class="item"><div class="ticket-num">12</div><div class="item-body"><div class="item-top"><span class="item-name">Vegetale</span><span class="item-price">105:-</span></div><div class="item-desc">Kronärtskocka, champinjoner, sparris, paprika, lök, oliver</div></div></div>
+          <div class="item"><div class="ticket-num">13</div><div class="item-body"><div class="item-top"><span class="item-name">Paris</span><span class="item-price">105:-</span></div><div class="item-desc">Champinjoner, piri piri, tomat, vitlök, gorgonzola</div></div></div>
+          <div class="item"><div class="ticket-num">14</div><div class="item-body"><div class="item-top"><span class="item-name">Napoli</span><span class="item-price">105:-</span></div><div class="item-desc">Tomat, vitlök, oliver, sparris</div></div></div>
+          <div class="item"><div class="ticket-num">15</div><div class="item-body"><div class="item-top"><span class="item-name">Tutti Frutti</span><span class="item-price">105:-</span></div><div class="item-desc">Ananas, jordnötter, banan, curry</div></div></div>
+        </div>
+      </div>
+
+      <div class="menu-cat" data-cat="nott">
+        <h3>Nötfärspizzor</h3>
+        <div class="menu-list">
+          <div class="item"><div class="ticket-num">16</div><div class="item-body"><div class="item-top"><span class="item-name">Bolognese</span><span class="item-price">100:-</span></div><div class="item-desc">Köttfärs</div></div></div>
+          <div class="item"><div class="ticket-num">17</div><div class="item-body"><div class="item-top"><span class="item-name">Mexicana</span><span class="item-price">105:-</span></div><div class="item-desc">Köttfärs, jalapeño, lök, paprika, tabasco</div></div></div>
+          <div class="item"><div class="ticket-num">18</div><div class="item-body"><div class="item-top"><span class="item-name">Torino</span><span class="item-price">110:-</span></div><div class="item-desc">Köttfärs, skinka, lök</div></div></div>
+          <div class="item"><div class="ticket-num">19</div><div class="item-body"><div class="item-top"><span class="item-name">El Greco</span><span class="item-price">110:-</span></div><div class="item-desc">Köttfärs, vitlök, paprika, oliver</div></div></div>
+          <div class="item"><div class="ticket-num">20</div><div class="item-body"><div class="item-top"><span class="item-name">Milano</span><span class="item-price">115:-</span></div><div class="item-desc">Köttfärs, bacon, champinjoner, ägg</div></div></div>
+        </div>
+      </div>
+
+      <div class="menu-cat" data-cat="salami">
+        <h3>Salamipizzor</h3>
+        <div class="menu-list">
+          <div class="item"><div class="ticket-num">21</div><div class="item-body"><div class="item-top"><span class="item-name">Cacciatora</span><span class="item-price">110:-</span></div><div class="item-desc">Champinjoner, salami, paprika</div></div></div>
+          <div class="item"><div class="ticket-num">22</div><div class="item-body"><div class="item-top"><span class="item-name">Maffiosa</span><span class="item-price">110:-</span></div><div class="item-desc">Skinka, salami, paprika</div></div></div>
+          <div class="item"><div class="ticket-num">23</div><div class="item-body"><div class="item-top"><span class="item-name">Tony Montana</span><span class="item-price">110:-</span></div><div class="item-desc">Skinka, salami, champinjoner, ägg</div></div></div>
+        </div>
+      </div>
+
+      <div class="menu-cat" data-cat="kyckling">
+        <h3>Kycklingpizzor</h3>
+        <div class="menu-list">
+          <div class="item"><div class="ticket-num">24</div><div class="item-body"><div class="item-top"><span class="item-name">Afrikana</span><span class="item-price">110:-</span></div><div class="item-desc">Kycklingfilé, banan, ananas, curry, valfri sås</div></div></div>
+          <div class="item"><div class="ticket-num">25</div><div class="item-body"><div class="item-top"><span class="item-name">Kycklingpizza</span><span class="item-price">105:-</span></div><div class="item-desc">Kyckling, valfri sås</div></div></div>
+          <div class="item"><div class="ticket-num">26</div><div class="item-body"><div class="item-top"><span class="item-name">Kyckling Special</span><span class="item-price">105:-</span></div><div class="item-desc">Kyckling, lök, valfri sås, feferoni, gurka, tomat, isbergssallad</div></div></div>
+        </div>
+      </div>
+
+      <div class="menu-cat" data-cat="kebab">
+        <h3>Kebabpizzor</h3>
+        <div class="menu-list">
+          <div class="item"><div class="ticket-num">27</div><div class="item-body"><div class="item-top"><span class="item-name">Kebab Pizza</span><span class="item-price">105:-</span></div><div class="item-desc">Kebabkött, lök, valfri sås, feferoni, gurka, tomat, isbergssallad</div></div></div>
+          <div class="item"><div class="ticket-num">28</div><div class="item-body"><div class="item-top"><span class="item-name">Ibbe Special</span><span class="item-price">105:-</span></div><div class="item-desc">Kebabkött, lök, valfri sås, feferoni, champinjoner</div></div></div>
+          <div class="item"><div class="ticket-num">29</div><div class="item-body"><div class="item-top"><span class="item-name">Angered Kebab</span><span class="item-price">115:-</span></div><div class="item-desc">Kebabkött, valfri sås, champinjoner, skinka</div></div></div>
+          <div class="item"><div class="ticket-num">30</div><div class="item-body"><div class="item-top"><span class="item-name">Athena</span><span class="item-price">110:-</span></div><div class="item-desc">Kebabkött, valfri sås, isbergssallad, vitlök, lök</div></div></div>
+        </div>
+      </div>
+
+      <div class="menu-cat" data-cat="inbakad">
+        <h3>Inbakade pizzor</h3>
+        <div class="menu-list">
+          <div class="item"><div class="ticket-num">31</div><div class="item-body"><div class="item-top"><span class="item-name">Calzone</span><span class="item-price">105:-</span></div><div class="item-desc">Skinka</div></div></div>
+          <div class="item"><div class="ticket-num">32</div><div class="item-body"><div class="item-top"><span class="item-name">Viking Kebab</span><span class="item-price">110:-</span></div><div class="item-desc">Kebabkött, lök, feferoni, gurka, isbergssallad, färska tomater</div></div></div>
+          <div class="item"><div class="ticket-num">33</div><div class="item-body"><div class="item-top"><span class="item-name">Ciao Ciao</span><span class="item-price">110:-</span></div><div class="item-desc">Oxfilé, lök, svartpeppar</div></div></div>
+          <div class="item"><div class="ticket-num">34</div><div class="item-body"><div class="item-top"><span class="item-name">Mama Rosa</span><span class="item-price">110:-</span></div><div class="item-desc">Skinka, räkor, champinjoner, vitlök</div></div></div>
+          <div class="item"><div class="ticket-num">35</div><div class="item-body"><div class="item-top"><span class="item-name">La Bella</span><span class="item-price">115:-</span></div><div class="item-desc">Skinka, räkor, ananas</div></div></div>
+          <div class="item"><div class="ticket-num">36</div><div class="item-body"><div class="item-top"><span class="item-name">Siciliana</span><span class="item-price">115:-</span></div><div class="item-desc">Skinka, oxfilé, vitlök, lök, champinjoner</div></div></div>
+          <div class="item"><div class="ticket-num">37</div><div class="item-body"><div class="item-top"><span class="item-name">Juventus Special</span><span class="item-price">115:-</span></div><div class="item-desc">Oxfilé, lök, champinjoner, gorgonzola, bearnaisesås</div></div></div>
+          <div class="item"><div class="ticket-num">38</div><div class="item-body"><div class="item-top"><span class="item-name">Grekisk Dubbelinbakad</span><span class="item-price">130:-</span></div><div class="item-desc">Oxfilé, lök, champinjoner, vitlök, bearnaisesås</div></div></div>
+        </div>
+      </div>
+
+      <div class="menu-cat" data-cat="oxfile">
+        <h3>Oxfilépizzor</h3>
+        <div class="menu-list">
+          <div class="item"><div class="ticket-num">39</div><div class="item-body"><div class="item-top"><span class="item-name">Reale</span><span class="item-price">115:-</span></div><div class="item-desc">Skinka, oxfilé, bearnaisesås, ägg</div></div></div>
+          <div class="item"><div class="ticket-num">40</div><div class="item-body"><div class="item-top"><span class="item-name">Provencial</span><span class="item-price">115:-</span></div><div class="item-desc">Vitlök, skinka, oxfilé, lök</div></div></div>
+          <div class="item"><div class="ticket-num">41</div><div class="item-body"><div class="item-top"><span class="item-name">Colombo</span><span class="item-price">110:-</span></div><div class="item-desc">Oxfilé, lök, champinjoner, bearnaisesås</div></div></div>
+          <div class="item"><div class="ticket-num">42</div><div class="item-body"><div class="item-top"><span class="item-name">Mamma Mia</span><span class="item-price">110:-</span></div><div class="item-desc">Oxfilé, lök, färska tomater, paprika</div></div></div>
+          <div class="item"><div class="ticket-num">43</div><div class="item-body"><div class="item-top"><span class="item-name">Roma</span><span class="item-price">115:-</span></div><div class="item-desc">Oxfilé, köttfärs, färska tomater, lök, vitlök</div></div></div>
+          <div class="item"><div class="ticket-num">44</div><div class="item-body"><div class="item-top"><span class="item-name">Husets</span><span class="item-price">110:-</span></div><div class="item-desc">Oxfilé, champinjoner, lök, vitlök, gorgonzola, ananas</div></div></div>
+          <div class="item"><div class="ticket-num">45</div><div class="item-body"><div class="item-top"><span class="item-name">Favoriten</span><span class="item-price">125:-</span></div><div class="item-desc">Skinka, oxfilé, champinjoner, bearnaisesås, bacon, lök, räkor</div></div></div>
+          <div class="item"><div class="ticket-num">46</div><div class="item-body"><div class="item-top"><span class="item-name">Juventus Extra</span><span class="item-price">125:-</span></div><div class="item-desc">Skinka, oxfilé, köttfärs, champinjoner, bearnaisesås, lök</div></div></div>
+        </div>
+      </div>
+
+      <div class="menu-cat" data-cat="amerikan">
+        <h3>Amerikanska pizzor</h3>
+        <div class="menu-list">
+          <div class="item"><div class="ticket-num">47</div><div class="item-body"><div class="item-top"><span class="item-name">Las Vegas</span><span class="item-price">120:-</span></div><div class="item-desc">Tomat, ost, salami, oliver, mozzarella</div></div></div>
+          <div class="item"><div class="ticket-num">48</div><div class="item-body"><div class="item-top"><span class="item-name">Texas</span><span class="item-price">130:-</span></div><div class="item-desc">Tomat, ost, oxfilé, vitlök, köttfärs, champinjoner, majs, jalapeño, mozzarella</div></div></div>
+          <div class="item"><div class="ticket-num">49</div><div class="item-body"><div class="item-top"><span class="item-name">Kentucky</span><span class="item-price">120:-</span></div><div class="item-desc">Tomat, ost, kycklingfilé, majs, curry, mozzarella</div></div></div>
+          <div class="item"><div class="ticket-num">50</div><div class="item-body"><div class="item-top"><span class="item-name">New York</span><span class="item-price">120:-</span></div><div class="item-desc">Tomat, ost, bacon, paprika, lök, mozzarella</div></div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="addons">
+      <h3 style="font-family:var(--display); font-size:18px; text-transform:uppercase; color:var(--olive); margin:48px 0 16px;">Tillbehör</h3>
+      <div class="addons-grid">
+        <div class="addon-row"><span>Pommes frites liten</span><span>35:-</span></div>
+        <div class="addon-row"><span>Pommes frites stor</span><span>45:-</span></div>
+        <div class="addon-row"><span>4 st mozzarella sticks</span><span>25:-</span></div>
+        <div class="addon-row"><span>4 st chilli cheese</span><span>25:-</span></div>
+        <div class="addon-row"><span>6 st lökringar</span><span>25:-</span></div>
+        <div class="addon-row"><span>Pommes på pizza</span><span>15:-</span></div>
+        <div class="addon-row"><span>Extra kött</span><span>25:-</span></div>
+        <div class="addon-row"><span>Dubbelbotten</span><span>10:-</span></div>
+        <div class="addon-row"><span>Extra ost</span><span>15:-</span></div>
+        <div class="addon-row"><span>Skaldjur</span><span>15:-</span></div>
+        <div class="addon-row"><span>Pizzasallad</span><span>10:-</span></div>
+        <div class="addon-row"><span>Extra sås</span><span>5:-</span></div>
+        <div class="addon-row"><span>Sås i burk</span><span>10:-</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section order-section">
+  <div class="wrap order-grid">
+    <div>
+      <span class="sec-eyebrow" style="color:var(--saffron);">Beställ</span>
+      <h2 class="sec-title" style="color:var(--cream);">Hämta, käka på plats eller få det levererat</h2>
+      <p class="sec-desc" style="color:rgba(242,230,208,0.75); margin-bottom:32px;">Sittplatser för hela familjen mitt i Angered Centrum, eller låt maten komma till dig. Du väljer.</p>
+      <div class="order-card">
+        <div class="order-opt">
+          <div class="order-opt-label">
+            <div class="opt-icon">🛵</div>
+            <div><div class="opt-name">Hemleverans</div><div class="opt-sub">35:- · alla dagar 12.00–21.30</div></div>
+          </div>
+          <a class="pill-btn" href="https://www.foodora.se/restaurant/v6gr/angered-juventus-pizzeria-angered" target="_blank" rel="noopener">Beställ</a>
+        </div>
+        <div class="order-opt">
+          <div class="order-opt-label">
+            <div class="opt-icon">🥡</div>
+            <div><div class="opt-name">Avhämtning</div><div class="opt-sub">Ring in din beställning</div></div>
+          </div>
+          <a class="pill-btn alt" href="tel:0313304043">031-330 40 43</a>
+        </div>
+        <div class="order-opt">
+          <div class="order-opt-label">
+            <div class="opt-icon">🍽️</div>
+            <div><div class="opt-name">Äta på plats</div><div class="opt-sub">Angereds Torg 8, Angered Centrum</div></div>
+          </div>
+          <a class="pill-btn outline" href="#hitta">Vägbeskrivning</a>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="map-embed" id="hitta">
+        <iframe loading="lazy" src="https://www.google.com/maps?q=Pizzeria+Juventus+Angered,+Angereds+Torg+8,+424+65+Angered&output=embed" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="omdomen">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-eyebrow">245 omdömen på Google</span>
+      <h2 class="sec-title">Vad Angered tycker</h2>
+      <p class="sec-desc">Ett urval av riktiga recensioner — både guld och konstruktiv kritik vi tar på allvar.</p>
+    </div>
+    <div class="reviews-rail">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">Pekar ut Mattias Collin-favoriten: det här är pizzerian alla andra i Göteborg borde mätas mot, lika bra varje gång man äter på plats eller hämtar hem.</div>
+        <div class="review-name"><b>Mattias Collin</b><span>Local Guide</span></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">Beskriver osten som perfekt smält med fina trådar i varje bit, och menar att ingredienserna känns lite extra utan att priset skenar.</div>
+        <div class="review-name"><b>Linus Eliasson</b><span>Local Guide</span></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★☆</div>
+        <div class="review-text">Lyfter fram snabb hantering trots högt tryck i lokalen, rimliga priser och alltid tillgängliga bestick och servetter.</div>
+        <div class="review-name"><b>Efe Pasa</b><span>Local Guide</span></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">Kallar kebabpizzan för stadens bästa och nämner trevlig personal som gör att man alltid känner sig välkommen tillbaka.</div>
+        <div class="review-name"><b>Lukas</b></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">Den glutenfria kycklingkebabpizzan beskrivs som den bästa hans fru någonsin ätit — en favorit för den som behöver glutenfritt.</div>
+        <div class="review-name"><b>Adrian</b></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★☆☆</div>
+        <div class="review-text">Uppskattar smak och service men tycker portionen kunde stå bättre i proportion till priset — något ägaren svarade på och tog till sig.</div>
+        <div class="review-name"><b>P K</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">JUVENTUS PIZZERIA</div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>Besök</h4>
+          <div>Angereds Torg 8</div>
+          <div>424 65 Angered, Göteborg</div>
+        </div>
+        <div class="foot-col">
+          <h4>Kontakt</h4>
+          <div><a href="tel:0313304043">031-330 40 43</a></div>
+          <div><a href="https://www.foodora.se/restaurant/v6gr/angered-juventus-pizzeria-angered" target="_blank" rel="noopener">Beställ på Foodora</a></div>
+        </div>
+        <div class="foot-col">
+          <h4>Öppettider</h4>
+          <div>Vardagar: 11:00–22:00</div>
+          <div>Helger: 12:00–22:00</div>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Juventus Pizzeria, Angered</span>
+      <span>100–200 kr per person · Dine-in & Takeaway</span>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-order">
+  <a class="cta-btn" href="https://www.foodora.se/restaurant/v6gr/angered-juventus-pizzeria-angered" target="_blank" rel="noopener">🛵 Beställ nu på Foodora</a>
+</div>
+
+<script>
+  const tabs = document.querySelectorAll('.menu-tab');
+  const cats = document.querySelectorAll('.menu-cat');
+  tabs.forEach(tab=>{
+    tab.addEventListener('click', ()=>{
+      tabs.forEach(t=>t.classList.remove('active'));
+      tab.classList.add('active');
+      const target = tab.dataset.cat;
+      cats.forEach(c=>{
+        c.classList.toggle('show', c.dataset.cat === target);
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
